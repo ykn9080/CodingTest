@@ -1,0 +1,43 @@
+package test;
+
+public class ZeroToRight {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] nums= {0,5,0,7,6,3};
+		int zind=0;
+		int ind=0;
+		int zcnt=0;
+		
+		for(int i=0;i<nums.length;i++) {
+			
+			if(nums[i]!=0) {
+				swap(nums,zind,i);
+				zind++;
+				
+			}
+			else {
+				zcnt++;
+			}
+			ind++;
+		}
+		System.out.println(zcnt);
+
+		for (int i=nums.length-1;i>zcnt;i--) {
+			nums[i]=0;
+		}
+		for(int i=0;i<nums.length;i++) {
+		System.out.println(nums[i]);
+		}
+		
+
+	}
+
+	private static void swap(int[]nums,int zind,int i) {
+		int tmp=nums[zind];
+		nums[zind]=nums[i];
+		
+	}
+	
+
+}

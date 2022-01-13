@@ -1,0 +1,32 @@
+package test;
+
+public class FindEqualSubArray {
+
+	public static void main(String[] args) {
+		int[] nums= {3,4,2,1,3,2};
+		int target=7;
+		int[] subarr=FindSubArray(nums,target);
+		for(int i=0;i<subarr.length;i++) {
+		System.out.println(subarr[i]);
+		}
+
+	}
+
+	private static int[] FindSubArray(int[] nums, int target) {
+		int sum=0;
+		
+		for(int i=0;i<nums.length;i++) {
+			int j=i;
+			int[] subarr= {};
+			while(sum<target & j<i) {
+				sum += nums[j];
+				System.out.println(sum+" "+i+" "+j);
+				if(sum==target) return subarr;
+				subarr[j]=nums[j];
+				j++;
+			}
+		}
+		return new int[0];
+	}
+
+}

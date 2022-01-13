@@ -1,0 +1,41 @@
+package test;
+
+public class FindPivotMiddle {
+
+	public static void main(String[] args) {
+		int[] nums= {1,8,2,9,2,3,6};
+		
+		
+		System.out.print(FindPivot(nums));
+		
+	}
+
+	private static int FindPivot(int[] nums) {
+		int sum=Sum(nums);
+		int size=nums.length;
+
+		int lsum=nums[0];
+		int pivot=1;
+		int rsum=sum-lsum-nums[pivot];
+		
+		while(pivot<size) {
+			if(lsum==rsum) return pivot;
+			
+			pivot++;
+			lsum +=nums[pivot];
+			rsum=sum-lsum-nums[pivot];
+		}
+		return -1;
+		
+		
+	}
+
+	private static int Sum(int[] nums) {
+		int sum=0;
+		for(int i=0;i<nums.length;i++) {
+			sum+=nums[i];
+		}
+		return sum;
+	}
+
+}

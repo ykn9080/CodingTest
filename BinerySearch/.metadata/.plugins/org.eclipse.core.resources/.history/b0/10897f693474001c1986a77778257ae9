@@ -1,0 +1,44 @@
+package test;
+
+
+
+public class Binery {
+	
+	
+	public static void main(String[] args) {
+		int[] arr= {1,3,5,6,7,15};
+		System.out.println(FindIndex(arr,9));
+
+		
+	}
+
+	private static int FindIndex(int[] nums,int target) {
+		int left=0;
+		int right=nums.length-1;
+		int pivot;
+		
+		while(left<=right) {
+			pivot=FindPivot(left, right);
+			if(nums[pivot]==target) {
+				return nums[pivot];
+			}
+			else if(nums[pivot]<target){
+			left=pivot+1;
+			}
+			else {
+				right=pivot-1;
+			}
+			
+		}
+		return -1;
+		
+	}
+
+
+	private static int FindPivot(int left, int right) {
+		return (int)(left+right)/2;
+	}
+	
+
+}
+
